@@ -4,6 +4,10 @@ const { Schema, model } = mongoose
 
 const userSchema = new Schema(
     {
+        _id: {
+            type: String,
+            _id: false,
+        },
         name: {
             type: String,
             required: true,
@@ -19,6 +23,7 @@ const userSchema = new Schema(
         email: {
             type: String,
             required: true,
+            unique: true,
         },
         passwordHash: {
             type: String,
@@ -30,6 +35,6 @@ const userSchema = new Schema(
     { timestamps: true }
 )
 
-const userModel = model('User', userSchema)
+const UserModel = model('User', userSchema)
 
-export default userModel
+export default UserModel
