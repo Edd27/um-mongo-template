@@ -1,7 +1,7 @@
 <div align="center">
   <h1>User management with Node.JS and MongoDB Template</h1>
   <p>
-    Template for the projects developed in the Node.JS with user management.
+    Template for the projects developed in the Node.JS with user management implemented.
     <br />
     <br />
     <br />
