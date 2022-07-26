@@ -1,7 +1,7 @@
 <div align="center">
-  <h1>Node.JS Template</h1>
+  <h1>User management with Node.JS and MongoDB Template</h1>
   <p>
-    Template for the projects developed in the Node.JS.
+    Template for the projects developed in the Node.JS with user management.
     <br />
     <br />
     <br />
@@ -11,7 +11,7 @@
 
 ## About The Project
 
-The objective of the project is to provide a base project with the minimum necessary tools to develop a project based on Node.JS.
+The objective of the project is to provide a base project with the minimum necessary tools to develop a project with user management based on Node.JS.
 
 <!-- BUILT WITH -->
 
