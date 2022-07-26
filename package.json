@@ -1,8 +1,8 @@
 {
-  "name": "nodejs-template",
+  "name": "um-mongo-template",
   "version": "1.0.0",
   "type": "module",
-  "description": "Template for the projects developed in the Node.JS.",
+  "description": "Template for the projects developed in the Node.JS with user management implemented",
   "scripts": {
     "dev": "nodemon src/index.js",
     "start": "node src/index.js",
@@ -13,7 +13,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/Edd27/nodejs-template.git"
+    "url": "git+https://github.com/Edd27/um-mongo-template.git"
   },
   "author": {
     "name": "Edgar Benavides",
@@ -41,7 +41,7 @@
     "*.{js,md}": "prettier --write"
   },
   "bugs": {
-    "url": "https://github.com/Edd27/nodejs-template/issues"
+    "url": "https://github.com/Edd27/um-mongo-template/issues"
   },
-  "homepage": "https://github.com/Edd27/nodejs-template#readme"
+  "homepage": "https://github.com/Edd27/um-mongo-template#readme"
 }
