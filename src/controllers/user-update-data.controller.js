@@ -7,7 +7,7 @@ const userUpdateDataController = async (req, res) => {
     const existingUserById = await UserModel.findById(id).exec()
     if (!existingUserById)
         return res.status(401).json({
-            message: 'Not authorized',
+            errors: ['Not authorized'],
         })
 
     existingUserById.name = name

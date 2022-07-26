@@ -1,3 +1,4 @@
+import { SALT } from '#Constants/salt.js'
 import UserModel from '#Schemas/user.schema.js'
 import { hash } from 'bcrypt'
 
@@ -7,23 +8,23 @@ const userRegisterController = async (req, res) => {
     const existingUserById = await UserModel.findById(_id).exec()
     if (existingUserById)
         return res.status(409).json({
-            message: 'User already exists',
+            errors: ['User already exists'],
         })
 
     const existingUserByEmail = await UserModel.findOne({ email }).exec()
     if (existingUserByEmail)
         return res.status(409).json({
-            message: 'Email is already in use',
+            errors: ['Email is already in use'],
         })
 
-    const hashedPassword = await hash(password, 12)
+    const passwordHash = await hash(password, SALT)
 
     const user = new UserModel({
         _id,
         name,
         surname,
         email,
-        password: hashedPassword,
+        passwordHash,
     })
 
     await user.save()

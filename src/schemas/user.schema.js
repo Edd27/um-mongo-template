@@ -28,8 +28,6 @@ const userSchema = new Schema(
         passwordHash: {
             type: String,
             required: true,
-            minLength: 10,
-            maxLength: 25,
         },
     },
     { timestamps: true }

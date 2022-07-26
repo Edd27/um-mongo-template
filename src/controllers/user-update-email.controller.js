@@ -8,23 +8,23 @@ const userUpdateEmailController = async (req, res) => {
     const existingUserById = await UserModel.findById(id).exec()
     if (!existingUserById)
         return res.status(401).json({
-            message: 'Not authorized',
+            errors: ['Not authorized'],
         })
 
     const checkPassword = await compare(password, existingUserById.passwordHash)
 
     if (!checkPassword)
-        return res.status(401).json({ message: 'Password incorrect' })
+        return res.status(401).json({ errors: ['Password incorrect'] })
 
     if (existingUserById.email === email)
         return res
             .status(400)
-            .json({ message: 'Email cannot be the same as the current one' })
+            .json({ errors: ['Email cannot be the same as the current one'] })
 
     const existingUserByEmail = await UserModel.findOne({ email }).exec()
     if (existingUserByEmail)
         return res.status(401).json({
-            message: 'Email is already in use',
+            errors: ['Email is already in use'],
         })
 
     existingUserById.email = email

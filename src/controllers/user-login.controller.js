@@ -8,7 +8,7 @@ const userLoginController = async (req, res) => {
     const existingUserByEmail = await UserModel.findOne({ email }).exec()
     if (!existingUserByEmail)
         return res.status(401).json({
-            message: 'Email or password is incorrect',
+            errors: ['Email or password is incorrect'],
         })
 
     const checkPassword = await compare(
@@ -19,7 +19,7 @@ const userLoginController = async (req, res) => {
     if (!checkPassword)
         return res
             .status(401)
-            .json({ message: 'Email or password is incorrect' })
+            .json({ errors: ['Email or password is incorrect'] })
 
     const jwtConstructor = new SignJWT({ id: existingUserByEmail._id })
     const encoder = new TextEncoder()

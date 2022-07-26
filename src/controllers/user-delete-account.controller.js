@@ -8,17 +8,17 @@ const userDeleteAccountController = async (req, res) => {
     const existingUserById = await UserModel.findById(id).exec()
     if (!existingUserById)
         return res.status(401).json({
-            message: 'Not authorized',
+            errors: ['Not authorized'],
         })
 
     const checkPassword = await compare(password, existingUserById.passwordHash)
 
     if (!checkPassword)
-        return res.status(401).json({ message: 'Password incorrect' })
+        return res.status(401).json({ errors: ['Password incorrect'] })
 
     await existingUserById.delete()
 
-    return res.status(204).json({ message: 'User account was deleted' })
+    return res.status(204).json({ errors: ['User account was deleted'] })
 }
 
 export default userDeleteAccountController
